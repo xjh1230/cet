@@ -8,6 +8,11 @@ from bottle import post ,get
 from common import web_helper,db_helper,json_helper
 
 
+@get('/api/test/')
+def test():
+    name = web_helper.get_query('name')
+    return name
+
 @post('/api/record/')
 def record():
     name = web_helper.get_form('name','姓名为空',False)
