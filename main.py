@@ -11,7 +11,7 @@ from beaker.middleware import SessionMiddleware
 from bottle import hook, default_app, get, run, response, request, static_file
 
 import api
-from cet.common import web_helper, log_helper
+from common import web_helper, log_helper
 
 #############################################
 # 初始化bottle框架相关参数
