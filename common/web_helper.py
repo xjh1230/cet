@@ -4,7 +4,7 @@
 import json
 import urllib
 import  re
-from  bottle import request, response, HTTPResponse
+from  bottle import request, response, HTTPResponse,FormsDict
 
 from common import json_helper
 
@@ -105,6 +105,7 @@ def __get(args_name):
     :return: 截取的编码值：%E5%BC%A0%E4%B8%89
     """
     get = '?' + request.query_string
+    get = FormsDict.decode(get)
     start_index = get.find('&' + args_name + '=')
     if start_index == -1:
         start_index = get.find('?' + args_name + '=')
