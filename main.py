@@ -124,24 +124,24 @@ class EnableCors(object):
 app = bottle.app()
 app.install(EnableCors())
 # 函数主入口
-# if __name__ == '__main__':
-#     app_argv = SessionMiddleware(default_app(), session_opts)
-#     # app_argv.install(EnableCors())
-#     run(app=app_argv, host='0.0.0.0', port=8088, debug=True, reloader=True)
-# else:
-#     # 使用uwsgi方式处理python访问时，必须要添加这一句代码，不然无法访问
-#     application = SessionMiddleware(default_app(), session_opts)
-
-
 if __name__ == '__main__':
-    data = {
-        'records': 0,  # 总记录数
-        'total': 0,  # 总页数
-        'page': 1,  # 页数
-        'rows': []
-    }
-    sql = '''select  * from searchrecord limit 100 offset 0 '''
-    result = db_helper.read(sql)
-    if result:
-        data['rows'] = result
-    print(data)
+    app_argv = SessionMiddleware(default_app(), session_opts)
+    # app_argv.install(EnableCors())
+    run(app=app_argv, host='0.0.0.0', port=8088, debug=True, reloader=True)
+else:
+    # 使用uwsgi方式处理python访问时，必须要添加这一句代码，不然无法访问
+    application = SessionMiddleware(default_app(), session_opts)
+
+
+# if __name__ == '__main__':
+#     data = {
+#         'records': 0,  # 总记录数
+#         'total': 0,  # 总页数
+#         'page': 1,  # 页数
+#         'rows': []
+#     }
+#     sql = '''select  * from searchrecord limit 100 offset 0 '''
+#     result = db_helper.read(sql)
+#     if result:
+#         data['rows'] = result
+#     print(data)
