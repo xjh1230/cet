@@ -39,3 +39,17 @@ def get_record():
         return web_helper.return_raise(json.dumps(data, cls=json_helper.CJsonEncoder))
     else:
         return web_helper.return_msg(-1, '没有数据', '')
+
+
+if __name__ == '__main__':
+    data = {
+        'records': 0,  # 总记录数
+        'total': 0,  # 总页数
+        'page': 1,  # 页数
+        'rows': []
+    }
+    sql = '''select  * from searchrecord limit 100 offset 0 '''
+    result = db_helper.read(sql)
+    if result:
+        data['rows'] = result
+    print(data)
