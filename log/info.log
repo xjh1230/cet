@@ -1,0 +1,14 @@
+2018-07-13 10:10:58,909 log_helper.py[line:15] INFO url:/api/getrecord;ip:127.0.0.1
+2018-07-13 10:12:38,319 log_helper.py[line:15] INFO url:/api/getrecord;ip:127.0.0.1
+2018-07-13 10:13:03,239 log_helper.py[line:15] INFO url:/api/getrecord;ip:127.0.0.1
+2018-07-13 10:13:07,147 log_helper.py[line:15] INFO url:/api/getrecord/;ip:127.0.0.1
+2018-07-13 10:14:21,434 log_helper.py[line:15] INFO url:/api/getrecord/;ip:127.0.0.1
+2018-07-13 10:14:22,289 log_helper.py[line:15] INFO url:/api/getrecord/;ip:127.0.0.1
+2018-07-13 10:14:23,354 log_helper.py[line:15] INFO url:/api/getrecord/;ip:127.0.0.1
+2018-07-13 10:14:24,032 log_helper.py[line:15] INFO url:/api/getrecord/;ip:127.0.0.1
+2018-07-13 10:17:19,675 log_helper.py[line:15] INFO url:/api/getrecord/;ip:127.0.0.1
+2018-07-13 10:21:09,800 log_helper.py[line:15] INFO url:/api/record/;ip:127.0.0.1;params(post):{'dict': {'name': ['1230'], 'cardno': ['12345678']}}
+2018-07-13 10:21:51,219 log_helper.py[line:15] INFO url:/api/record/;ip:127.0.0.1;params(post):{'dict': {'name': ['1234'], 'cardno': ['12345678']}}
+2018-07-13 10:21:54,359 log_helper.py[line:15] INFO url:/api/getrecord/;ip:127.0.0.1
+2018-07-13 10:31:28,887 log_helper.py[line:15] INFO url:/api/record/;ip:127.0.0.1;params(post):{'dict': {'name': ['1234'], 'cardno': ['12345678']}}
+2018-07-13 10:31:33,943 log_helper.py[line:15] INFO url:/api/getrecord/;ip:127.0.0.1
