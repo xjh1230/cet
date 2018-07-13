@@ -10,7 +10,7 @@ from common import web_helper,db_helper,json_helper
 
 @get('/api/test/')
 def test():
-    name = web_helper.get_query('name')
+    name = web_helper.get_query('name','',False)
     return name
 
 @post('/api/record/')
