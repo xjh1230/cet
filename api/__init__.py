@@ -6,7 +6,7 @@
 import os
 import sys
 
-from cet.common import log_helper
+from common import log_helper
 
 pro_path = os.path.split(os.path.realpath(__file__))[0]
 sys.path.append(pro_path)
