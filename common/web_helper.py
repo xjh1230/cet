@@ -4,7 +4,7 @@
 import json
 import urllib
 import  re
-from  bottle import request, response, HTTPResponse,FormsDict
+from  bottle import request, response, HTTPResponse
 
 from common import json_helper
 
@@ -70,11 +70,16 @@ def get_form(args_name, msg, is_strip=True, lenght=0, is_check_null=False, notif
     """
     args_value = ''
     if request.method.upper() in ('POST', 'PUT', 'DELETE'):
+        #
         try:
             if request.json:
-                args_value = str(request.json.get(args_name, '')).strip()
+                postValue = request.JSON.decode('utf-8')
+                # args_value = str(request.json.get(args_name, '')).strip()
+                args_value = str(postValue.get(args_name, '')).strip()
             else:
-                args_value = str(request.forms.get(args_name, '')).strip()
+                postValue = request.POST.decode('utf-8')
+                # args_value = str(request.forms.get(args_name, '')).strip()
+                args_value = str(postValue.get(args_name, '')).strip()
         except:
             args_value = str(request.forms.get(args_name, '')).strip()
         if not args_value:
@@ -104,18 +109,20 @@ def __get(args_name):
     :param args_name: 要取值的参数名：name
     :return: 截取的编码值：%E5%BC%A0%E4%B8%89
     """
-    get = '?' + request.query_string
-    get = FormsDict.decode(get)
-    start_index = get.find('&' + args_name + '=')
-    if start_index == -1:
-        start_index = get.find('?' + args_name + '=')
-        if start_index == -1:
-            return ''
-    end_index = get.find('&', start_index + 1)
-    if end_index == -1:
-        return get[start_index + len(args_name + '=') + 1:]
-    else:
-        return get[start_index + len(args_name + '=') + 1:end_index]
+    form =request.GET.decode('utf-8')
+    return form.get(args_name)
+    # get = '?' + request.query_string
+    #
+    # start_index = get.find('&' + args_name + '=')
+    # if start_index == -1:
+    #     start_index = get.find('?' + args_name + '=')
+    #     if start_index == -1:
+    #         return ''
+    # end_index = get.find('&', start_index + 1)
+    # if end_index == -1:
+    #     return get[start_index + len(args_name + '=') + 1:]
+    # else:
+    #     return get[start_index + len(args_name + '=') + 1:end_index]
 
 def __request_handle(args_value, msg, is_strip, lenght, is_check_null, notify_msg, is_check_special_char):
     """
