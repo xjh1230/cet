@@ -13,7 +13,7 @@ def record():
     name = web_helper.get_form('name','姓名为空',False)
     cardno = web_helper.get_form('cardno','准考证号为空',False)
     ip = web_helper.get_ip()
-
+    print(name,cardno,ip)
     sql = '''insert into searchrecord (name,cardno,ip) VALUES (%(name)s,%(cardno)s,%(ip)s) returning id'''
     par = {'name': name, 'cardno': cardno,'ip':ip}
     result = db_helper.write(sql, par)
@@ -31,7 +31,7 @@ def get_record():
         'page': 1,  # 页数
         'rows': []
     }
-    sql = '''select  * from searchrecord limit 100 offset 0 '''
+    sql = '''select  * from searchrecord limit 500 offset 0 '''
     result = db_helper.read(sql)
     if result:
         data['rows'] = result
